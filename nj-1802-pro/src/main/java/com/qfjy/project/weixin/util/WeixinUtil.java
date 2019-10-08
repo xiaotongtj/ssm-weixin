@@ -1,24 +1,20 @@
 package com.qfjy.project.weixin.util;
+import com.qfjy.project.weixin.pojo.AccessToken;
+import com.qfjy.project.weixin.pojo.Menu;
+import net.sf.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ConnectException;
 import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.qfjy.project.weixin.pojo.AccessToken;
-import com.qfjy.project.weixin.pojo.Menu;
-
-import net.sf.json.JSONObject;
 
 /**
  * 公众平台通用接口工具类
@@ -48,7 +44,7 @@ public class WeixinUtil {
 
 			URL url = new URL(requestUrl);
 			HttpsURLConnection httpUrlConn = (HttpsURLConnection) url.openConnection();
-			httpUrlConn.setSSLSocketFactory(ssf);
+			httpUrlConn.setSSLSocketFactory(ssf); //给httpUrlConnection添加ssl
 
 			httpUrlConn.setDoOutput(true);
 			httpUrlConn.setDoInput(true);
@@ -57,7 +53,7 @@ public class WeixinUtil {
 			httpUrlConn.setRequestMethod(requestMethod);
 
 			if ("GET".equalsIgnoreCase(requestMethod))
-				httpUrlConn.connect();
+				httpUrlConn.connect(); //应为get方式，没有请求体，所以需要直接进行连接
 
 			// 当有数据需要提交时
 			if (null != outputStr) {
@@ -67,7 +63,7 @@ public class WeixinUtil {
 				outputStream.close();
 			}
 
-			// 将返回的输入流转换成字符串
+			// 将返回的输入流转换成字符串（httpUrlConn的响应，【始终是通过输入流的方式获取】）
 			InputStream inputStream = httpUrlConn.getInputStream();
 			InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);

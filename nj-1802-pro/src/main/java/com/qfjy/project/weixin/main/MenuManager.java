@@ -25,11 +25,11 @@ public class MenuManager {
 
  */
 	
-	public final static String REAL_URL="http://weixinguo.xicp.net/maven_weixin/"; //个人花生壳
+	public final static String REAL_URL="http://xsptbc.natappfree.cc/"; //个人花生壳
 	//public final static String REAL_URL = "http://wxmobsa.yidatec.com/weixin/"; //正式号服务器	
 	
-	public final static String appId="wxe545a87dd58d472c";
-	public final static String appSecret = "8e7b1ee0710dbe4ba9fbcd93dc2321cf";
+	public final static String appId="wx39028222f6c873f1";
+	public final static String appSecret = "7062a04e1260e4dfca227cfc725c97e3";
 	
 	public static void resultMenu(){
 		// 调用接口获取access_token
@@ -78,7 +78,7 @@ public class MenuManager {
 		ViewButton btn10 = new ViewButton();
 		btn10.setName("View菜单");
 		btn10.setType("view");
-		btn10.setUrl("");
+		btn10.setUrl("http://www.sina.com");
 		
 		
 //-------------------------------------------------------
@@ -90,13 +90,13 @@ public class MenuManager {
 		ViewButton btn21 = new ViewButton();
 		btn21.setName("菜单");
 		btn21.setType("view");
-		btn21.setUrl("https://www.baidu.com/");
+		btn21.setUrl("https://www.baidu.com");
 
 //------------------------------------------------------------		
 		CommonButton btn31 = new CommonButton(); //返回图文消息
-		btn31.setName("");
+		btn31.setName("1");
 		btn31.setType("click");
-		btn31.setKey("");
+		btn31.setKey("2");
 		
 		//###############################################一级子菜单
 		ComplexButton mainBtn1 = new ComplexButton();
