@@ -19,6 +19,7 @@ public class CoreServlet {
 
 	/**
 	 * 确认请求来自微信服务器
+     * test
 	 */
 	@RequestMapping(value="weixin",method=RequestMethod.GET)  // weixin/weixinOpe
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
