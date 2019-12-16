@@ -24,6 +24,7 @@ public class WeixinOauth {
     public void oauth(HttpServletResponse response) throws Exception {
         String path = MenuManager.REAL_URL + "weixin/invoke"; //重点
         path = URLEncoder.encode(path, "UTF-8");
+        //todo 这一步就是弹窗授权页面
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                 "appid=" + MenuManager.appId +
                 "&redirect_uri=" + path +

@@ -18,7 +18,7 @@ public class CoreServlet {
 	private static final long serialVersionUID = 4440739483644821986L;
 
 	/**
-	 * 确认请求来自微信服务器 test
+	 * 确认请求来自微信服务器
 	 */
 	@RequestMapping(value="weixin",method=RequestMethod.GET)  // weixin/weixinOpe
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
